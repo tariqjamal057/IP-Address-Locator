@@ -1,0 +1,57 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+*::after {
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+}
+*::before {
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+html,
+body {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+header,
+.container {
+  margin: 10px;
+}
+h1 {
+  font-size: 18px;
+}
+
+input {
+  padding: 5px;
+}
+
+button {
+  padding: 5px 10px;
+}
+
+:root {
+  --bg-white: white;
+  --bg-black: black;
+}
+
+:focus {
+  outline: 0;
+}
+
+a:active,
+a:hover {
+  outline: 0;
+}
