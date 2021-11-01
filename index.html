@@ -62,6 +62,42 @@
             justify-content: center;
             transition: 1s;
         }
+        .detail {
+            min-height: 100vh;
+            width: 500px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            padding-top: 15vh;
+            transition: 1s;
+        }
+        h2 , h3 , h4 , span {
+            padding: 10px 0px;
+            color: #fff;
+        }
+        @media screen and (max-width:769px)
+        {
+            #ipAddress {
+                width: 240px;
+            }
+            .detail {
+                width: 340px;
+            }
+        }
+        @media screen and (max-width:340px)
+        {
+            #ipAddress {
+                width: 200px;
+                font-size: 16px;
+            }
+            button{
+                width: 70px;
+                font-size: 14px;
+            }
+            .detail {
+                width: 300px;
+            }
+        }
     </style>
 </head>
 
@@ -70,7 +106,7 @@
     <div class="container">
         <form action="" id="form">
             <input type="text" id="ipAddress" placeholder="Enter Ip address">
-            <button type="button" id="find">Locate</button>
+            <button type="button" id="find" onclick="GetData()">Locate</button>
         </form>
     </div>
     <div class="dataContainer">
@@ -78,6 +114,61 @@
 
         </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        function GetData() {
+            $(document).ready(function () {
+                var ipAddr = document.getElementById('ipAddress').value;
+                if(ipAddr == "")  {
+                    alert("Please Enter the IP Address to Locate")
+                }
+                else {
+                    const API_KEY = "762f3b74f3a64b47bd982b7365cd1894";
+                    var display = $('.detail');
+                    $.getJSON("https://api.ipgeolocation.io/ipgeo?apiKey=" + API_KEY + "&ip= " + ipAddr, function(result) {
+                        console.log(result);
+                        display.empty();
+                        document.getElementById('ipAddress').value = "";
+                        var ipAddress = result.ip;
+                        var latitude = result.latitude;
+                        var longitude = result.longitude;
+                        var cityName = result.city;
+                        var stateName = result.state_prov;
+                        var countryName = result.country_name;
+                        var continentName = result.continent_name;
+                        var countryCode = result.country_code2;
+                        var countryCapital = result.country_capital;
+                        var counrtyFlag = result.country_flag;
+                        var currencyName = result.currency.name;
+                        var currencyCode = result.currency.code;
+                        var currencySymbol = result.currency.symbol;
+                        var timeZone = result.time_zone.name;
+                        var currentTime = result.time_zone.current_time;
+                        var zipCode = result.zipcode;
+
+                        var output = `
+                        <h3>IP ADDRESS : ${ipAddress}</h3>
+                        <span>Latitude : ${latitude}</span>
+                        <span>Longitude : ${longitude}</span>
+                        <h4 style="text-transform: uppercase;" >Continent : ${continentName} </h4>
+                        <h2 style="text-transform: uppercase;">Country : ${countryName} (<small>${countryCode}</small>)</h2>
+                        <h3>Capital : ${countryCapital}</h3>
+                        <img src="${counrtyFlag}" alt="Country Flag" style="width:80px";height:40px;/>
+                        <span>State : ${stateName}</span>
+                        <h4>City : ${cityName}</h4>
+                        <span>Country CurrencyName : ${currencyName} <br>Currency Code : ${currencyCode} <br> Currency Symbol : ${currencySymbol}</span>
+                        <span>Time Zone : ${timeZone}<br>Current Time : ${currentTime}</span>
+                        <span>Zip Code : ${zipCode}</span>
+                        `;
+                        display.append(output);
+                    });
+                }
+            });
+        }
+    </script>
+
+
+
 
 </body>
 
