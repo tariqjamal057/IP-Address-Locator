@@ -129,7 +129,6 @@
                     const API_KEY = "762f3b74f3a64b47bd982b7365cd1894";
                     var display = $('.detail');
                     $.getJSON("https://api.ipgeolocation.io/ipgeo?apiKey=" + API_KEY + "&ip= " + ipAddr, function(result) {
-                        console.log(result);
                         display.empty();
                         document.getElementById('ipAddress').value = "";
                         var ipAddress = result.ip;
