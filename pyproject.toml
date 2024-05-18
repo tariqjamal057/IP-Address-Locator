@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "ip-address-locator"
+version = "0.1.0"
+description = "IP Address Locator! With this tool, you can easily locate any IP address. It's designed to simplify your IP tracking needs."
+authors = ["Tariq Jamal A <tariqjamal4267324@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+reactpy = {extras = ["fastapi"], version = "^1.0.2"}
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
