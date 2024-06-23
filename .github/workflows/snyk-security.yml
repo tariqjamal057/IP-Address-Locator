@@ -3,12 +3,10 @@ name: CI/CD Pipeline with Snyk Security
 on:
   push:
     branches:
-      - main  # Replace with your main branch name
-      - develop  # Add other branches as needed
+      - development  # Add other branches as needed
   pull_request:
     branches:
-      - main  # Replace with your main branch name
-      - develop  # Add other branches as needed
+      - development  # Add other branches as needed
 
 jobs:
   build:
@@ -37,13 +35,16 @@ jobs:
       #   run: |
       #     poetry run pytest  # Example command to run tests using Poetry-managed environment
 
+      - name: Install Snyk CLI
+        run: |
+          npm install -g snyk
+
       - name: Snyk Security Scan
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}  # Snyk API token stored in GitHub Secrets
         run: |
-          npm install -g snyk
-          snyk auth $SNYK_TOKEN
-          snyk test --all-projects --file=poetry.lock  # Perform security scan, adjust file parameter if needed
+          snyk auth $SNYK_TOKEN || exit 1  # Exit if authentication fails
+          snyk test --all-projects --file=poetry.lock || exit 1  # Exit if scan fails
 
       # Continue with deployment steps if applicable
       # - name: Deploy to Production
