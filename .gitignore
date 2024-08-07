@@ -50,3 +50,7 @@ Thumbs.db
 
 # env file
 .env
+
+# virtual env
+.venv
+venv
