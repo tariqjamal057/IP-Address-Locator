@@ -54,3 +54,4 @@ Thumbs.db
 # virtual env
 .venv
 venv
+env

@@ -13,102 +13,193 @@
     <style>
         .top-container {
             height: 35vh;
-            background-color: aqua;
         }
+
         .form-container-bg {
-            background-image: radial-gradient( rgba(1, 73, 23, 0.5) , rgba(0,0,0,.7)) , url('https://wallpaperbat.com/img/184922-neural-network-wallpaper-top-free-neural-network-background.jpg');
+            background-image: radial-gradient(rgba(1, 73, 23, 0.5), rgba(0, 0, 0, .7)), url('https://wallpaperbat.com/img/184922-neural-network-wallpaper-top-free-neural-network-background.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             background-attachment: fixed;
         }
-        .data img {
-            width: 80px;
-            height: 40px;
-            border-radius: 4px;
-            margin-bottom: 10px;
-        }
-        .data h2 {
-            margin-bottom: 5px;
-        }
+
         .data h3 {
             margin-top: 5px;
             margin-bottom: 10px;
         }
+
         .data span {
             display: block;
             margin-bottom: 5px;
+        }
+
+        .w-50 {
+            width: 50% !important;
+        }
+
+        .h-30vh {
+            height: 40vh !important;
         }
     </style>
 </head>
 
 <body>
-
     <div class="main">
-        <div class="">
+        <div class="position-fixed w-100 h-30vh">
             <nav class="navbar navbar-success bg-success ">
                 <div class="container-fluid">
-                  <span class="navbar-brand mb-0 h1 text-light">Navbar</span>
+                    <span class="navbar-brand mb-0 h1 text-light">Navbar</span>
                 </div>
-              </nav>
-            <div class="body">
-                <div class="top-container form-container-bg">
-                    <div class="container h-100 d-flex justify-content-center align-item-center">
+            </nav>
+            <div class="top-container form-container-bg ">
+                <div class="container w-100 h-100 d-flex justify-content-center">
+                    <form action="/" method="post" class="w-100 h-100 d-flex justify-content-center align-item-center">
                         <div class="input-group rounded m-auto w-50">
-                            <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-                            <button class="btn btn-success text-light">
+                            <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
+                                aria-describedby="search-addon" name="ip_data" required value="{{ ip_address }}"/>
+                            <button class="btn btn-success text-light" type="submit">
                                 Get Details
                             </button>
-                          </div>
-                    </div>
-                    
-                </div>
-                <div class="container-fluid">
-                    <div class="data-container my-4 bg-light py-2 rounded">
-                        <div class="header">
-                            <h3 class="text-center">IP Details</h3>
                         </div>
-                        <div class="data px-5 py-3">
-                            <div>
-                                <h4>Primary Data</h4>
-                                <p><strong>Ip Address: </strong>0.0.0.0</p>
-                                <p><strong>ISP: </strong>Google INC</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="h-30vh"></div>
 
-                            </div>
-                            <div>
-                                <h4>Coordinates</h4>
-                                <p><strong>Latitude:</strong> 28.6139</p>
-                                <p><strong>Longitude:</strong> 77.209</p>
-                            </div>
-                            <div>
-                                <h4>Geographical Details</h4>
-                                <p><strong>Continent:</strong> Asia</p>
-                                <p><strong>Country:</strong> India (<small>IN</small>)</p>
-                                <p><strong>Capital:</strong> New Delhi</p>
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Flag_of_India.png/800px-Flag_of_India.png?20230815162632" alt="India Flag">
-                                <p><strong>State:</strong> Delhi</p>
-                                <p><strong>City:</strong> New Delhi</p>
-                            </div>
-                            <div>
-                                <h4>Currency</h4>
-                                <p><strong>Name:</strong> Indian Rupee</p>
-                                <p><strong>Code:</strong> INR</p>
-                                <p><strong>Symbol:</strong> ₹</p>
-                            </div>
-                            <div>
-                                <h4>Time Zone &amp; Local Time</h4>
-                                <p><strong>Time Zone:</strong> UTC+05:30</p>
-                                <p><strong>Current Time:</strong> 2024-06-24 21:00</p>
-                            </div>
-                            <div>
-                                <h4>Postal Information</h4>
-                                <p><strong>Zip Code:</strong> 110001</p>
-                            </div>
+        {% if data and status %}
+        <div class="body" style="overflow-y: scroll !important;">
+            <div>
+                <div class="container">
+                    <div class="my-4 p-4 rounded d-flex justify-content-center align-items-center shadow-sm">
+                        <div class="data w-100 h-100">
+                            <table class="table table-bordered">
+                                <thead class="bg-dark">
+                                    <tr>
+                                        <th colspan="2">
+                                            <h4 class="text-light">IP Address Details</h4>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <thead>
+                                    <tr>
+                                        <th colspan="2">Primary Data</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Ip Address</td>
+                                        <td>{{ data["ip"] }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>ISP</td>
+                                        <td>{{ data["isp"] }}</td>
+                                    </tr>
+                                </tbody>
+                                <thead>
+                                    <tr>
+                                        <th colspan="2">Coordinates</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Latitude</td>
+                                        <td>{{ data["latitude"] }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Longitude</td>
+                                        <td>{{ data["longitude"] }}</td>
+                                    </tr>
+                                </tbody>
+                                <thead>
+                                    <tr>
+                                        <th colspan="2">Geographical Details</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Continent</td>
+                                        <td>{{ data["continent_name"] }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Country Name</td>
+                                        <td>{{ data["country_name"] }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Country Offical Name</td>
+                                        <td>{{ data["country_name_official"] }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Capital</td>
+                                        <td>{{ data["country_capital"] }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Flag</td>
+                                        <td>
+                                            <img src="{{ data['country_flag'] }}" alt="Flag" class="img-fluid"
+                                                height="50px" width="50px">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>State</td>
+                                        <td>{{ data["state_prov"] }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>City</td>
+                                        <td>{{ data["city"] }}</td>
+                                    </tr>
+                                </tbody>
+                                <thead>
+                                    <tr>
+                                        <th colspan="2">Currency</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Currency Name</td>
+                                        <td>{{ data["currency"]["name"] }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Currency Code</td>
+                                        <td>{{ data["currency"]["code"] }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Currency Symbol</td>
+                                        <td>{{ data["currency"]["symbol"] }}</td>
+                                    </tr>
+                                </tbody>
+                                <thead>
+                                    <tr>
+                                        <th colspan="2">Time Zone &amp; Local Time</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Timezone</td>
+                                        <td>
+                                            {{ data["time_zone"]["name"] }}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Local Time</td>
+                                        <td>
+                                            {{ data["time_zone"]["current_time"] }}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        {% elif not status %}
+        <div class="container my-4 p-4 shadow-sm">
+            <div class="alert alert-warning" role="alert">
+                {{ data }}
+            </div>
+        </div>
+        {% endif %}
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
         integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
