@@ -1,10 +1,14 @@
 import requests
 from flask import Flask, render_template, request
 from settings import settings
+import requests
+from flask import Flask, render_template, request
+from settings import settings
 
 app = Flask(__name__)
 
 
+@app.route("/",methods = ['GET', 'POST'])
 @app.route("/",methods = ['GET', 'POST'])
 def home():
     template = render_template(template_name_or_list="index.html")
