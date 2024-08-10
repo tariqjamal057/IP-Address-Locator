@@ -7,171 +7,207 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IP Locator</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            border: none;
-            outline: none;
+        .top-container {
+            height: 35vh;
         }
-        html {
-            scroll-behavior: smooth;
-        }
-        body {
-            height: 100vh;
-            width: 100%;
-            background-image: radial-gradient( rgba(1, 73, 23, 0.5) , rgba(0,0,0,.7)) , url('https://wallpaperbat.com/img/184922-neural-network-wallpaper-top-free-neural-network-background.jpg');
+
+        .form-container-bg {
+            background-image: radial-gradient(rgba(1, 73, 23, 0.5), rgba(0, 0, 0, .7)), url('https://wallpaperbat.com/img/184922-neural-network-wallpaper-top-free-neural-network-background.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             background-attachment: fixed;
-            font-family: 'Poppins', sans-serif;
-            overflow-y: scroll;
-            transition: 1s;
         }
-        .container {
-            position: fixed;
-            width: 100%;
-            height: 15vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+
+        .data h3 {
+            margin-top: 5px;
+            margin-bottom: 10px;
         }
-        #ipAddress {
-            height: 40px;
-            padding: 4px 10px;
-            border: 2px solid #fff;
-            font-size: 18px;
-            background: #000;
-            color: #fff;
-            width: 250px;
-            margin-right: -5px;
-            border-radius: 3px 0px 0px 3px;
+
+        .data span {
+            display: block;
+            margin-bottom: 5px;
         }
-        button { 
-            height: 40px;
-            width: 80px;
-            padding: 6px 10px;
-            border-radius: 0px 3px 3px 0px;
-            font-size: 17px;
-            background: #fff;
-            cursor: pointer;
+
+        .w-50 {
+            width: 50% !important;
         }
-        .dataContainer {
-            min-height: 100vh;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            transition: 1s;
-        }
-        .detail {
-            min-height: 100vh;
-            width: 500px;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            padding-top: 15vh;
-            transition: 1s;
-        }
-        h2 , h3 , h4 , span {
-            padding: 10px 0px;
-            color: #fff;
-        }
-        @media screen and (max-width:769px)
-        {
-            #ipAddress {
-                width: 240px;
-            }
-            .detail {
-                width: 340px;
-            }
-        }
-        @media screen and (max-width:340px)
-        {
-            #ipAddress {
-                width: 200px;
-                font-size: 16px;
-            }
-            button{
-                width: 70px;
-                font-size: 14px;
-            }
-            .detail {
-                width: 300px;
-            }
+
+        .h-30vh {
+            height: 40vh !important;
         }
     </style>
 </head>
 
 <body>
-
-    <div class="container">
-        <form action="" id="form">
-            <input type="text" id="ipAddress" placeholder="Enter Ip address">
-            <button type="button" id="find" onclick="GetData()">Locate</button>
-        </form>
-    </div>
-    <div class="dataContainer">
-        <div class="detail">
-
+    <div class="main">
+        <div class="position-fixed w-100 h-30vh">
+            <nav class="navbar navbar-success bg-success ">
+                <div class="container-fluid">
+                    <span class="navbar-brand mb-0 h1 text-light">Navbar</span>
+                </div>
+            </nav>
+            <div class="top-container form-container-bg ">
+                <div class="container w-100 h-100 d-flex justify-content-center">
+                    <form action="/" method="post" class="w-100 h-100 d-flex justify-content-center align-item-center">
+                        <div class="input-group rounded m-auto w-50">
+                            <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
+                                aria-describedby="search-addon" name="ip_data" required value="{{ ip_address }}"/>
+                            <button class="btn btn-success text-light" type="submit">
+                                Get Details
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
+        <div class="h-30vh"></div>
+
+        {% if data and status %}
+        <div class="body" style="overflow-y: scroll !important;">
+            <div>
+                <div class="container">
+                    <div class="my-4 p-4 rounded d-flex justify-content-center align-items-center shadow-sm">
+                        <div class="data w-100 h-100">
+                            <table class="table table-bordered">
+                                <thead class="bg-dark">
+                                    <tr>
+                                        <th colspan="2">
+                                            <h4 class="text-light">IP Address Details</h4>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <thead>
+                                    <tr>
+                                        <th colspan="2">Primary Data</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Ip Address</td>
+                                        <td>{{ data["ip"] }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>ISP</td>
+                                        <td>{{ data["isp"] }}</td>
+                                    </tr>
+                                </tbody>
+                                <thead>
+                                    <tr>
+                                        <th colspan="2">Coordinates</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Latitude</td>
+                                        <td>{{ data["latitude"] }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Longitude</td>
+                                        <td>{{ data["longitude"] }}</td>
+                                    </tr>
+                                </tbody>
+                                <thead>
+                                    <tr>
+                                        <th colspan="2">Geographical Details</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Continent</td>
+                                        <td>{{ data["continent_name"] }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Country Name</td>
+                                        <td>{{ data["country_name"] }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Country Offical Name</td>
+                                        <td>{{ data["country_name_official"] }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Capital</td>
+                                        <td>{{ data["country_capital"] }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Flag</td>
+                                        <td>
+                                            <img src="{{ data['country_flag'] }}" alt="Flag" class="img-fluid"
+                                                height="50px" width="50px">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>State</td>
+                                        <td>{{ data["state_prov"] }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>City</td>
+                                        <td>{{ data["city"] }}</td>
+                                    </tr>
+                                </tbody>
+                                <thead>
+                                    <tr>
+                                        <th colspan="2">Currency</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Currency Name</td>
+                                        <td>{{ data["currency"]["name"] }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Currency Code</td>
+                                        <td>{{ data["currency"]["code"] }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Currency Symbol</td>
+                                        <td>{{ data["currency"]["symbol"] }}</td>
+                                    </tr>
+                                </tbody>
+                                <thead>
+                                    <tr>
+                                        <th colspan="2">Time Zone &amp; Local Time</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Timezone</td>
+                                        <td>
+                                            {{ data["time_zone"]["name"] }}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Local Time</td>
+                                        <td>
+                                            {{ data["time_zone"]["current_time"] }}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% elif not status %}
+        <div class="container my-4 p-4 shadow-sm">
+            <div class="alert alert-warning" role="alert">
+                {{ data }}
+            </div>
+        </div>
+        {% endif %}
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script>
-        function GetData() {
-            $(document).ready(function () {
-                var ipAddr = document.getElementById('ipAddress').value;
-                if(ipAddr == "")  {
-                    alert("Please Enter the IP Address to Locate")
-                }
-                else {
-                    const API_KEY = "762f3b74f3a64b47bd982b7365cd1894";
-                    var display = $('.detail');
-                    $.getJSON("https://api.ipgeolocation.io/ipgeo?apiKey=" + API_KEY + "&ip= " + ipAddr, function(result) {
-                        display.empty();
-                        document.getElementById('ipAddress').value = "";
-                        var ipAddress = result.ip;
-                        var latitude = result.latitude;
-                        var longitude = result.longitude;
-                        var cityName = result.city;
-                        var stateName = result.state_prov;
-                        var countryName = result.country_name;
-                        var continentName = result.continent_name;
-                        var countryCode = result.country_code2;
-                        var countryCapital = result.country_capital;
-                        var counrtyFlag = result.country_flag;
-                        var currencyName = result.currency.name;
-                        var currencyCode = result.currency.code;
-                        var currencySymbol = result.currency.symbol;
-                        var timeZone = result.time_zone.name;
-                        var currentTime = result.time_zone.current_time;
-                        var zipCode = result.zipcode;
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-                        var output = `
-                        <h3>IP ADDRESS : ${ipAddress}</h3>
-                        <span>Latitude : ${latitude}</span>
-                        <span>Longitude : ${longitude}</span>
-                        <h4 style="text-transform: uppercase;" >Continent : ${continentName} </h4>
-                        <h2 style="text-transform: uppercase;">Country : ${countryName} (<small>${countryCode}</small>)</h2>
-                        <h3>Capital : ${countryCapital}</h3>
-                        <img src="${counrtyFlag}" alt="Country Flag" style="width:80px";height:40px;/>
-                        <span>State : ${stateName}</span>
-                        <h4>City : ${cityName}</h4>
-                        <span>Country CurrencyName : ${currencyName} <br>Currency Code : ${currencyCode} <br> Currency Symbol : ${currencySymbol}</span>
-                        <span>Time Zone : ${timeZone}<br>Current Time : ${currentTime}</span>
-                        <span>Zip Code : ${zipCode}</span>
-                        `;
-                        display.append(output);
-                    });
-                }
-            });
-        }
-    </script>
-
-
-
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
