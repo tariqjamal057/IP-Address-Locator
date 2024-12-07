@@ -13,13 +13,13 @@ files = [
 
 [[package]]
 name = "blinker"
-version = "1.8.2"
+version = "1.9.0"
 description = "Fast, simple object-to-object and broadcast signaling"
 optional = false
-python-versions = ">=3.8"
+python-versions = ">=3.9"
 files = [
-    {file = "blinker-1.8.2-py3-none-any.whl", hash = "sha256:1779309f71bf239144b9399d06ae925637cf6634cf6bd131104184531bf67c01"},
-    {file = "blinker-1.8.2.tar.gz", hash = "sha256:8f77b09d3bf7c795e969e9486f39c2c5e9c39d4ee07424be2bc594ece9642d83"},
+    {file = "blinker-1.9.0-py3-none-any.whl", hash = "sha256:ba0efaa9080b619ff2f3459d1d500c57bddea4a6b424b60a91141db6fd2f08bc"},
+    {file = "blinker-1.9.0.tar.gz", hash = "sha256:b4ce2265a7abece45e7cc896e98dbebe6cead56bcf805a3d23136d145f5445bf"},
 ]
 
 [[package]]
@@ -174,27 +174,45 @@ six = ">=1.13.0"
 
 [[package]]
 name = "djlint"
-version = "1.34.1"
+version = "1.36.3"
 description = "HTML Template Linter and Formatter"
 optional = false
-python-versions = ">=3.8.0,<4.0.0"
+python-versions = ">=3.9"
 files = [
-    {file = "djlint-1.34.1-py3-none-any.whl", hash = "sha256:96ff1c464fb6f061130ebc88663a2ea524d7ec51f4b56221a2b3f0320a3cfce8"},
-    {file = "djlint-1.34.1.tar.gz", hash = "sha256:db93fa008d19eaadb0454edf1704931d14469d48508daba2df9941111f408346"},
+    {file = "djlint-1.36.3-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:2ae7c620b58e16d6bf003bd7de3f71376a7a3daa79dc02e77f3726d5a75243f2"},
+    {file = "djlint-1.36.3-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:e155ce0970d4a28d0a2e9f2e106733a2ad05910eee90e056b056d48049e4a97b"},
+    {file = "djlint-1.36.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:8e8bb0406e60cc696806aa6226df137618f3889c72f2dbdfa76c908c99151579"},
+    {file = "djlint-1.36.3-cp310-cp310-win_amd64.whl", hash = "sha256:76d32faf988ad58ef2e7a11d04046fc984b98391761bf1b61f9a6044da53d414"},
+    {file = "djlint-1.36.3-cp311-cp311-macosx_10_9_x86_64.whl", hash = "sha256:32f7a5834000fff22e94d1d35f95aaf2e06f2af2cae18af0ed2a4e215d60e730"},
+    {file = "djlint-1.36.3-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:3eb1b9c0be499e63e8822a051e7e55f188ff1ab8172a85d338a8ae21c872060e"},
+    {file = "djlint-1.36.3-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:4c2e0dd1f26eb472b8c84eb70d6482877b6497a1fd031d7534864088f016d5ea"},
+    {file = "djlint-1.36.3-cp311-cp311-win_amd64.whl", hash = "sha256:a06b531ab9d049c46ad4d2365d1857004a1a9dd0c23c8eae94aa0d233c6ec00d"},
+    {file = "djlint-1.36.3-cp312-cp312-macosx_10_13_x86_64.whl", hash = "sha256:e66361a865e5e5a4bbcb40f56af7f256fd02cbf9d48b763a40172749cc294084"},
+    {file = "djlint-1.36.3-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:36e102b80d83e9ac2e6be9a9ded32fb925945f6dbc7a7156e4415de1b0aa0dba"},
+    {file = "djlint-1.36.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:9ac4b7370d80bd82281e57a470de8923ac494ffb571b89d8787cef57c738c69a"},
+    {file = "djlint-1.36.3-cp312-cp312-win_amd64.whl", hash = "sha256:107cc56bbef13d60cc0ae774a4d52881bf98e37c02412e573827a3e549217e3a"},
+    {file = "djlint-1.36.3-cp313-cp313-macosx_10_13_x86_64.whl", hash = "sha256:2a9f51971d6e63c41ea9b3831c928e1f21ae6fe57e87a3452cfe672d10232433"},
+    {file = "djlint-1.36.3-cp313-cp313-macosx_11_0_arm64.whl", hash = "sha256:080c98714b55d8f0fef5c42beaee8247ebb2e3d46b0936473bd6c47808bb6302"},
+    {file = "djlint-1.36.3-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:f65a80e0b5cb13d357ea51ca6570b34c2d9d18974c1e57142de760ea27d49ed0"},
+    {file = "djlint-1.36.3-cp313-cp313-win_amd64.whl", hash = "sha256:95ef6b67ef7f2b90d9434bba37d572031079001dc8524add85c00ef0386bda1e"},
+    {file = "djlint-1.36.3-cp39-cp39-macosx_10_9_x86_64.whl", hash = "sha256:8e2317a32094d525bc41cd11c8dc064bf38d1b442c99cc3f7c4a2616b5e6ce6e"},
+    {file = "djlint-1.36.3-cp39-cp39-macosx_11_0_arm64.whl", hash = "sha256:e82266c28793cd15f97b93535d72bfbc77306eaaf6b210dd90910383a814ee6c"},
+    {file = "djlint-1.36.3-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:01b2101c2d1b079e8d545e6d9d03487fcca14d2371e44cbfdedee15b0bf4567c"},
+    {file = "djlint-1.36.3-cp39-cp39-win_amd64.whl", hash = "sha256:15cde63ef28beb5194ff4137883025f125676ece1b574b64a3e1c6daed734639"},
+    {file = "djlint-1.36.3-py3-none-any.whl", hash = "sha256:0c05cd5b76785de2c41a2420c06ffd112800bfc0f9c0f399cc7cea7c42557f4c"},
+    {file = "djlint-1.36.3.tar.gz", hash = "sha256:d85735da34bc7ac93ad8ef9b4822cc2a23d5f0ce33f25438737b8dca1d404f78"},
 ]
 
 [package.dependencies]
-click = ">=8.0.1,<9.0.0"
-colorama = ">=0.4.4,<0.5.0"
-cssbeautifier = ">=1.14.4,<2.0.0"
-html-tag-names = ">=0.1.2,<0.2.0"
-html-void-elements = ">=0.1.0,<0.2.0"
-jsbeautifier = ">=1.14.4,<2.0.0"
-json5 = ">=0.9.11,<0.10.0"
-pathspec = ">=0.12.0,<0.13.0"
-PyYAML = ">=6.0,<7.0"
-regex = ">=2023.0.0,<2024.0.0"
-tqdm = ">=4.62.2,<5.0.0"
+click = ">=8.0.1"
+colorama = ">=0.4.4"
+cssbeautifier = ">=1.14.4"
+jsbeautifier = ">=1.14.4"
+json5 = ">=0.9.11"
+pathspec = ">=0.12"
+pyyaml = ">=6"
+regex = ">=2023"
+tqdm = ">=4.62.2"
 
 [[package]]
 name = "editorconfig"
@@ -208,47 +226,25 @@ files = [
 
 [[package]]
 name = "flask"
-version = "3.0.3"
+version = "3.1.0"
 description = "A simple framework for building complex web applications."
 optional = false
-python-versions = ">=3.8"
+python-versions = ">=3.9"
 files = [
-    {file = "flask-3.0.3-py3-none-any.whl", hash = "sha256:34e815dfaa43340d1d15a5c3a02b8476004037eb4840b34910c6e21679d288f3"},
-    {file = "flask-3.0.3.tar.gz", hash = "sha256:ceb27b0af3823ea2737928a4d99d125a06175b8512c445cbd9a9ce200ef76842"},
+    {file = "flask-3.1.0-py3-none-any.whl", hash = "sha256:d667207822eb83f1c4b50949b1623c8fc8d51f2341d65f72e1a1815397551136"},
+    {file = "flask-3.1.0.tar.gz", hash = "sha256:5f873c5184c897c8d9d1b05df1e3d01b14910ce69607a117bd3277098a5836ac"},
 ]
 
 [package.dependencies]
-blinker = ">=1.6.2"
+blinker = ">=1.9"
 click = ">=8.1.3"
-itsdangerous = ">=2.1.2"
+itsdangerous = ">=2.2"
 Jinja2 = ">=3.1.2"
-Werkzeug = ">=3.0.0"
+Werkzeug = ">=3.1"
 
 [package.extras]
 async = ["asgiref (>=3.2)"]
 dotenv = ["python-dotenv"]
-
-[[package]]
-name = "html-tag-names"
-version = "0.1.2"
-description = "List of known HTML tag names"
-optional = false
-python-versions = ">=3.7,<4.0"
-files = [
-    {file = "html-tag-names-0.1.2.tar.gz", hash = "sha256:04924aca48770f36b5a41c27e4d917062507be05118acb0ba869c97389084297"},
-    {file = "html_tag_names-0.1.2-py3-none-any.whl", hash = "sha256:eeb69ef21078486b615241f0393a72b41352c5219ee648e7c61f5632d26f0420"},
-]
-
-[[package]]
-name = "html-void-elements"
-version = "0.1.0"
-description = "List of HTML void tag names."
-optional = false
-python-versions = ">=3.7,<4.0"
-files = [
-    {file = "html-void-elements-0.1.0.tar.gz", hash = "sha256:931b88f84cd606fee0b582c28fcd00e41d7149421fb673e1e1abd2f0c4f231f0"},
-    {file = "html_void_elements-0.1.0-py3-none-any.whl", hash = "sha256:784cf39db03cdeb017320d9301009f8f3480f9d7b254d0974272e80e0cb5e0d2"},
-]
 
 [[package]]
 name = "idna"
@@ -519,13 +515,13 @@ typing-extensions = ">=4.6.0,<4.7.0 || >4.7.0"
 
 [[package]]
 name = "pydantic-settings"
-version = "2.4.0"
+version = "2.6.1"
 description = "Settings management using Pydantic"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "pydantic_settings-2.4.0-py3-none-any.whl", hash = "sha256:bb6849dc067f1687574c12a639e231f3a6feeed0a12d710c1382045c5db1c315"},
-    {file = "pydantic_settings-2.4.0.tar.gz", hash = "sha256:ed81c3a0f46392b4d7c0a565c05884e6e54b3456e6f0fe4d8814981172dc9a88"},
+    {file = "pydantic_settings-2.6.1-py3-none-any.whl", hash = "sha256:7fb0637c786a558d3103436278a7c4f1cfd29ba8973238a50c5bb9a55387da87"},
+    {file = "pydantic_settings-2.6.1.tar.gz", hash = "sha256:e0f92546d8a9923cb8941689abf85d6601a8c19a23e97a34b2964a2e3f813ca0"},
 ]
 
 [package.dependencies]
@@ -812,13 +808,13 @@ testing = ["coverage (>=7.6.0)", "pytest", "pytest-cov"]
 
 [[package]]
 name = "werkzeug"
-version = "3.0.3"
+version = "3.1.3"
 description = "The comprehensive WSGI web application library."
 optional = false
-python-versions = ">=3.8"
+python-versions = ">=3.9"
 files = [
-    {file = "werkzeug-3.0.3-py3-none-any.whl", hash = "sha256:fc9645dc43e03e4d630d23143a04a7f947a9a3b5727cd535fdfe155a17cc48c8"},
-    {file = "werkzeug-3.0.3.tar.gz", hash = "sha256:097e5bfda9f0aba8da6b8545146def481d06aa7d3266e7448e2cccf67dd8bd18"},
+    {file = "werkzeug-3.1.3-py3-none-any.whl", hash = "sha256:54b78bf3716d19a65be4fceccc0d1d7b89e608834989dfae50ea87564639213e"},
+    {file = "werkzeug-3.1.3.tar.gz", hash = "sha256:60723ce945c19328679790e3282cc758aa4a6040e4bb330f53d30fa546d44746"},
 ]
 
 [package.dependencies]
@@ -829,5 +825,5 @@ watchdog = ["watchdog (>=2.3)"]
 
 [metadata]
 lock-version = "2.0"
-python-versions = "^3.12"
-content-hash = "61be0c8d54603d61f89cc3a41f9ff2c77b92933672bfab520a33ac2f5b5c2809"
+python-versions = "^3.11"
+content-hash = "ddb895a015c64d6f948c8faa609ce128cabf8d8cfb387750f0a41d41be89be4d"
